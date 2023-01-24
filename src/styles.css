@@ -1,1 +1,42 @@
 /* You can add global styles to this file, and also import other style files */
+
+/*Selector de clase*/
+.bg-black{
+    background-color: black;
+}
+
+.list-group-item{
+    background-color: transparent;
+}
+
+.fa-brands.fa-linkedin.fa-2x:hover {
+    color: #0d7ce4 !important;
+}
+
+section.banner {
+    background-image: url(/assets/fondo2.png);
+    width: 100%;
+    height: 35vh;
+    background-repeat: no-repeat;
+    position: relative;
+    background-size: cover;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    -msn-background-size: cover;
+}
+
+h1.intro{
+    padding-top: 10%;
+}
+h2.intro{
+    font-size: 3.5rem;
+}
+
+.login{
+    height: 85vh;
+}
+
+.formulario-login{
+    margin-top: 15%;
+}
