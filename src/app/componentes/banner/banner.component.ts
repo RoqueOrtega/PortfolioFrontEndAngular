@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { PortfolioService } from 'src/app/servicios/portfolio.service';
+import { PersonaService } from 'src/app/servicios/persona.service';
 
 @Component({
   selector: 'app-banner',
@@ -9,15 +9,15 @@ import { PortfolioService } from 'src/app/servicios/portfolio.service';
 export class BannerComponent implements OnInit {
 
   //Variable para usarla(enlazarla) al template(en el html de la vista)
-  miPortfolio:any;
+  persona:any;
 
-  constructor(private datosPortfolio:PortfolioService) { }
+  constructor(private personaService:PersonaService) { }
 
   ngOnInit(): void {
-    this.datosPortfolio.obtenerDatos().subscribe(data =>{
-      console.log("*****En banner.component.ts*****")
-      console.log(data);
-      this.miPortfolio = data;
+    this.personaService.obtenerDatosPersonales().subscribe(data =>{
+      //console.log("*****En banner.component.ts*****")
+      //console.log(data);
+      this.persona = data;
     });
   }
 

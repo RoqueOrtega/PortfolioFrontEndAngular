@@ -1,39 +1,43 @@
 <!-- SECTION: "HABILIDADES" Hard & Soft Skill -->
-<section class="container-fluid mt-5">
-    <h2 class="text-center"><strong>Hard & Soft Skill</strong></h2> 
-    <h4>HTML</h4>
-    <div class="progress">
-        <div class="progress-bar" role="progressbar" aria-label="Danger example" style="width: 80%;" aria-valuenow="70" aria-valuemin="0" 
-        aria-valuemax="100">80%</div>
+<section id="habilidades" class="container-fluid mt-5">
+    <div class="row mb-2">
+        <div class="col-auto me-auto mt-2">
+            <h2 class="text-center"><strong>Habilidades (Hard & Soft Skill)</strong></h2> 
+        </div>
+        <!-- Botón de NUEVO (llama al modal)-->
+        <div class="d-flex col-auto mt-2">
+            <button type="submit" class="btn btn-close-black" 
+                    data-bs-toggle="modal" data-bs-target="#habilidadModalAdd"><i 
+                    class="fa-solid fa-plus"></i></button>
+        </div>
     </div>
-    <h4>CSS</h4>
-    <div class="progress">
-        <div class="progress-bar" role="progressbar" aria-label="Danger example" style="width: 60%;" aria-valuenow="70" aria-valuemin="0" 
-        aria-valuemax="100">60%</div>
-    </div>     
-    <h4>JavaScript</h4>
-    <div class="progress">
-        <div class="progress-bar" role="progressbar" aria-label="Danger example" style="width: 60%;" aria-valuenow="70" aria-valuemin="0" 
-        aria-valuemax="100">60%</div>
-    </div>     
-    <h4>ANGULAR</h4>
-    <div class="progress">
-        <div class="progress-bar" role="progressbar" aria-label="Danger example" style="width: 50%;" aria-valuenow="70" aria-valuemin="0" 
-        aria-valuemax="100">50%</div>
-    </div>
-    <h4>BASE de DATOS</h4>
-    <div class="progress">
-        <div class="progress-bar" role="progressbar" aria-label="Danger example" style="width: 90%;" aria-valuenow="70" aria-valuemin="0" 
-        aria-valuemax="100">90%</div>
-    </div>      
-    <h4>JAVA</h4>
-    <div class="progress">
-        <div class="progress-bar" role="progressbar" aria-label="Danger example" style="width: 90%;" aria-valuenow="70" aria-valuemin="0" 
-        aria-valuemax="100">90%</div>
-    </div>   
-    <h4>SpringBoot</h4>
-    <div class="progress">
-        <div class="progress-bar" role="progressbar" aria-label="Danger example" style="width: 30%;" aria-valuenow="70" aria-valuemin="0" 
-        aria-valuemax="100">30%</div>
-    </div>                                                         
+
+  
+    <!-- LISTADO -->
+    <div class="row" *ngFor="let habilidad of habilidades">
+        <div class="col-3">
+            <h4>{{habilidad.nombre}}</h4>
+        </div>
+        <div class="col-7 mt-2">
+            <div class="progress">
+                <div class="progress-bar progress-bar-striped progress-bar-animated" 
+                role="progressbar" aria-label="Animated striped example" aria-valuenow="75" 
+                aria-valuemin="0" aria-valuemax="100" [style.width.%]="habilidad.porcentaje"
+                style="min-width: 10px;">{{habilidad.porcentaje}}%
+                </div>
+            </div>
+        </div>
+        <div class="col-2 p-0 d-flex item-alling-end">
+            <!-- Botón de EDICION y BORRADO-->
+            <button type="button" 
+                class="btn btn-close-black"><i 
+                class="fa-solid fa-pencil"></i></button> 
+            <button type="button" 
+                class="btn btn-close-black"><i 
+                class="fa-solid fa-trash-can" (click)="delete(habilidad.id)"></i></button>     
+        </div>
+    </div>    
+
 </section>
+
+<app-modal-habilidad-add></app-modal-habilidad-add>

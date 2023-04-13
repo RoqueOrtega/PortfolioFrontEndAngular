@@ -11,10 +11,12 @@ import { EducacionComponent } from './componentes/educacion/educacion.component'
 import { HabilidadesComponent } from './componentes/habilidades/habilidades.component';
 import { ProyectosComponent } from './componentes/proyectos/proyectos.component';
 import { FooterComponent } from './componentes/footer/footer.component';
-import { PortfolioService } from 'src/app/servicios/portfolio.service';
+import { PersonaService } from 'src/app/servicios/persona.service';
 import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './componentes/login/login.component';
 import { IndexComponent } from './componentes/index/index.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { ModalHabilidadAddComponent } from './modales/modal-habilidad-add/modal-habilidad-add.component';
 
 @NgModule({
   declarations: [
@@ -28,12 +30,14 @@ import { IndexComponent } from './componentes/index/index.component';
     ProyectosComponent,
     FooterComponent,
     LoginComponent,
-    IndexComponent
+    IndexComponent,
+    ModalHabilidadAddComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

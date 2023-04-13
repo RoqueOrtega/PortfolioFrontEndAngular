@@ -1,30 +1,35 @@
 <app-encabezado></app-encabezado>
 <!-- "FORMULARIO de LOGIN" -->
 <section class="login">
-    <div class="container text-center">
-        <div class="row">
-          <div class="col-2">
-          </div>
-          <div class="col-8 formulario-login">
-            <div class="modal-body">
-                <form>
+                <form [formGroup]="form" class="m-5" (ngSubmit)="onEnviar($event)">
                     <div class="mb-3">
                       <label for="exampleInputEmail1" class="form-label">Email</label>
-                      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                      <input type="email" formControlName="email" 
+                      [ngClass]="{'is-invalid': Email?.errors && Email?.touched,'is-valid': !Email?.errors && Email?.touched}"
+                      class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                      <div *ngIf="Email?.errors && Email?.touched">
+                          <p *ngIf="Email?.hasError('required')" class="text-danger">
+                            El campo email es requerido.
+                          </p>
+                          <p *ngIf="Email?.hasError('email')" class="text-danger">
+                            El formato del email no es válido.
+                          </p>
+                      </div>
                     </div>
                     <div class="mb-3">
                       <label for="exampleInputPassword1" class="form-label">Contraseña</label>
-                      <input type="password" class="form-control" id="exampleInputPassword1">
+                      <input type="password" formControlName="password" class="form-control" id="exampleInputPassword1">
+                      <div *ngIf="Password?.errors && Password?.touched">
+                        <p *ngIf="Password?.hasError('required')" class="text-danger">
+                          El campo contraseña es requerido.
+                        </p>
+                    </div>                      
                     </div>
-                  </form>
-            </div>    
-            <div class="modal-footer">
-                <button type="submit" class="btn btn-secondary">Ingresar</button>
-            </div>
-            <small>Si no tenes cuenta <a href="/registro.html">registrate</a></small>
-          </div>
-          <div class="col-2">
-          </div>
-        </div>
-    </div>
-</section>  
+                    <button type="submit" class="btn btn-primary">Enviar</button>
+                </form>
+
+                <div>
+                  <small>Si no tenes cuenta <a href="/registro.html">registrate</a></small>     
+                </div>  
+
+<app-footer></app-footer> 
