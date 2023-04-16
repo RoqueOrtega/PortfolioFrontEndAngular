@@ -4,7 +4,7 @@
         <div class="col-auto me-auto mt-2">
             <h2 class="text-center"><strong>Habilidades (Hard & Soft Skill)</strong></h2> 
         </div>
-        <!-- Botón de NUEVO (llama al modal)-->
+        <!-- Botón de NUEVO (llama a un MODAL)-->
         <div class="d-flex col-auto mt-2">
             <button type="submit" class="btn btn-close-black" 
                     data-bs-toggle="modal" data-bs-target="#habilidadModalAdd"><i 
@@ -28,13 +28,15 @@
             </div>
         </div>
         <div class="col-2 p-0 d-flex item-alling-end">
-            <!-- Botón de EDICION y BORRADO-->
+            <!-- Botón de EDICION (NO llama a un MODAL)-->
+            <button type="button" routerLink="editHabilidad/{{habilidad.id}}"
+                class="btn btn-close-black" >
+                <i class="fa-solid fa-pencil"></i>
+            </button> 
+            <!-- Botón de BORRAR-->    
             <button type="button" 
                 class="btn btn-close-black"><i 
-                class="fa-solid fa-pencil"></i></button> 
-            <button type="button" 
-                class="btn btn-close-black"><i 
-                class="fa-solid fa-trash-can" (click)="delete(habilidad.id)"></i></button>     
+                class="fa-solid fa-trash-can" (click)="borrar(habilidad.id)"></i></button>     
         </div>
     </div>    
 

@@ -13,8 +13,8 @@ export class ModalHabilidadAddComponent implements OnInit {
   form: FormGroup;
   nombre = '';
   porcentaje = 0;
-  persona:any;//Para relacionar con la habilidad
-  constructor(private formBuilder:FormBuilder, private habilidadService:HabilidadService, private personaService:PersonaService) {
+  //persona:any;//Para relacionar con la habilidad
+  constructor(private formBuilder:FormBuilder, private habilidadService:HabilidadService) {
     //Se crea el grupo de controles para el formulario
     this.form = formBuilder.group(
       {

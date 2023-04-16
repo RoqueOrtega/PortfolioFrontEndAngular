@@ -17,6 +17,7 @@ import { LoginComponent } from './componentes/login/login.component';
 import { IndexComponent } from './componentes/index/index.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ModalHabilidadAddComponent } from './modales/modal-habilidad-add/modal-habilidad-add.component';
+import { HabilidadEdicionComponent } from './modales/habilidad-edicion/habilidad-edicion.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { ModalHabilidadAddComponent } from './modales/modal-habilidad-add/modal-
     FooterComponent,
     LoginComponent,
     IndexComponent,
-    ModalHabilidadAddComponent
+    ModalHabilidadAddComponent,
+    HabilidadEdicionComponent
   ],
   imports: [
     BrowserModule,

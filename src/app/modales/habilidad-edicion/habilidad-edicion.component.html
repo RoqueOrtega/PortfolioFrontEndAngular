@@ -1,23 +1,24 @@
 <!-- Modal: Habilidad -->
-<div class="modal fade" id="habilidadModalAdd" tabindex="-1" 
-    ria-labelledby="exampleModalLabel" aria-hidden="true">
+<div>
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h1 class="modal-title fs-5" id="exampleModalLabel">Agregar nueva habilidad</h1>
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Editar habilidad</h1>
           <button type="button" class="btn-close" data-bs-dismiss="modal" 
-          aria-label="Close" (click)="limpiar()"></button>
+          aria-label="Close" routerLink="/"></button>
         </div>
 
         <!-- Formulario Habilidad -->
-        <form [formGroup]="form" (ngSubmit)="form.valid && onCreate($event)"
-            name="habilidadForm">
+        <form [formGroup]="form" (ngSubmit)="onUpdate($event)"
+            name="habilidadForm" class="bg-white rounded p-5 seccion">
             <div class="modal-body">
+                <!-- Campo: Id(oculto) -->
+                <input type="hidden" id="habilidaId" class="form-control" formControlName="id" [ngModel]="habilidad.id">
                 <!-- Campo: Nombre -->
                 <div class="mb-3">
                     <label for="habilidaNombre" class="form-label">Nombre</label>
                     <input type="text" class="form-control" id="habilidaNombre"
-                        placeholder="Ingrese un nombre" formControlName="nombre" [(ngModel)] ="nombre" 
+                        placeholder="Ingrese un nombre" formControlName="nombre" [ngModel]="habilidad.nombre" 
                         [ngClass]="{'is-invalid': Nombre?.errors && Nombre?.touched,'is-valid': !Nombre?.errors && Nombre?.touched}">
                         <div *ngIf="Nombre?.errors && Nombre?.touched">
                           <p *ngIf="Nombre?.hasError('required')" class="text-danger">
@@ -29,7 +30,7 @@
                 <div class="mb-3">
                     <label for="habilidadPorcentaje" class="form-label">Porcentaje %</label>
                     <input type="number" min="0" max="100" id="habilidadPorcentaje"
-                    class="form-control" formControlName="porcentaje" [(ngModel)]="porcentaje"
+                    class="form-control" formControlName="porcentaje" [ngModel]="habilidad.porcentaje"
                     placeholder="Ingrese un número entre 0 y 100"
                     [ngClass]="{'is-invalid': Porcentaje?.errors && Porcentaje?.touched,'is-valid': !Porcentaje?.errors && Porcentaje?.touched}">
                     <div *ngIf="Porcentaje?.errors && Porcentaje?.touched">
@@ -47,8 +48,7 @@
             </div>
        
             <div class="modal-footer">
-                <button type="button" class="btn btn-ligth">Limpiar</button>    
-                <button type="submit" class="btn btn-primary">Agregar</button>
+                <button type="submit" class="btn btn-primary">Guardar</button>
             </div>
         </form>
       </div>

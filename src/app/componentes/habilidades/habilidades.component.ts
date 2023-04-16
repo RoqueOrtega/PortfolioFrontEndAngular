@@ -10,7 +10,6 @@ export class HabilidadesComponent implements OnInit {
 
   //Variable para usarla(enlazarla) al template(en el html de la vista)
   habilidades: any[]=[];
-
   constructor(private habilidadService:HabilidadService) { }
 
   ngOnInit(): void {
@@ -23,19 +22,17 @@ export class HabilidadesComponent implements OnInit {
     });
   }
 
-  delete(id:number){
+  borrar(id:number){
     if (id != undefined){
       this.habilidadService.delete(id).subscribe(
         data =>{
           //alert("Halidad eliminada!!!");
           this.cargarHilidades();
         }, err =>{
-          //console.log(err);
           //alert("No se pudo eliminar la habilidad!")
           window.location.reload();
         })
     }}
 
-  
 
 }
