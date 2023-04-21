@@ -2,12 +2,14 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Habilidad } from '../modelos/habilidad';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class HabilidadService {
-  url="http://localhost:8080/api/habilidades";
+  //url="http://localhost:8080/api/habilidades";
+  url= environment.apiURL + "api/habilidades";
 
   constructor(private http:HttpClient) { }
 
