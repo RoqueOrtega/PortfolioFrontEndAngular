@@ -1,0 +1,83 @@
+<!-- Componente: Habilidad -->
+<div>
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Editar Banner</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" 
+          aria-label="Close" routerLink="/"></button>
+        </div>
+
+        <!-- Formulario BANNER -->
+        <form [formGroup]="form" (ngSubmit)="onUpdate($event)"
+            name="habilidadForm" class="bg-white rounded p-5 seccion">
+            <div class="modal-body">
+              <!-- Campo: Id(oculto) -->
+              <input type="hidden" id="personaId" class="form-control" formControlName="id" [ngModel]="persona.id">   
+              <!-- Campo: AcercaDe(oculto) -->
+              <input type="hidden" id="personaAcercaDe" class="form-control" formControlName="acercade" [ngModel]="persona.acercade">    
+              <!-- Campo: Nombre -->
+              <div class="mb-3">
+                  <label for="personaNombre" class="form-label">Nombre</label>
+                  <input type="text" class="form-control" id="personaNombre"
+                      placeholder="Ingrese un nombre" formControlName="nombre" [ngModel]="persona.nombre" 
+                      [ngClass]="{'is-invalid': Nombre?.errors && Nombre?.touched,'is-valid': !Nombre?.errors && Nombre?.touched}">
+                      <div *ngIf="Nombre?.errors && Nombre?.touched">
+                        <p *ngIf="Nombre?.hasError('required')" class="text-danger">
+                          El campo nombre es requerido.
+                        </p>
+                    </div>
+              </div>
+
+              <!-- Campo: Descripcion -->
+              <div class="mb-3">
+                <label for="personaDescripcion" class="form-label">Descripción</label>
+                <input type="text" class="form-control" id="personaDescripcion"
+                    placeholder="Ingrese una descripción" formControlName="descripcion" [ngModel]="persona.descripcion" 
+                    [ngClass]="{'is-invalid': Descripcion?.errors && Descripcion?.touched,'is-valid': !Descripcion?.errors && Descripcion?.touched}">
+                    <div *ngIf="Descripcion?.errors && Descripcion?.touched">
+                      <p *ngIf="Descripcion?.hasError('required')" class="text-danger">
+                        El campo descripción es requerido.
+                      </p>
+                  </div>
+              </div>  
+            
+              <!-- Campo: Telefono -->
+              <div class="mb-3">
+                <label for="personaTelefono" class="form-label">Telefono</label>
+                <input type="text" class="form-control" id="personaTelefono"
+                    placeholder="Ingrese un telefono" formControlName="telefono" [ngModel]="persona.telefono" 
+                    [ngClass]="{'is-invalid': Telefono?.errors && Telefono?.touched,'is-valid': !Telefono?.errors && Telefono?.touched}">
+                    <div *ngIf="Telefono?.errors && Telefono?.touched">
+                      <p *ngIf="Telefono?.hasError('required')" class="text-danger">
+                        El campo telefono es requerido.
+                      </p>
+                  </div>
+              </div>
+
+
+              <!-- Campo: Email -->
+              <div class="mb-3">
+                <label for="personaEmail" class="form-label">Email</label>
+                <input type="email" class="form-control" id="personaEmail"
+                    placeholder="Ingrese un email" formControlName="email" [ngModel]="persona.email" 
+                    [ngClass]="{'is-invalid': Email?.errors && Email?.touched,'is-valid': !Email?.errors && Email?.touched}">
+                    <div *ngIf="Email?.errors && Email?.touched">
+                      <p *ngIf="Email?.hasError('required')" class="text-danger">
+                        El campo email es requerido.
+                      </p>
+                      <p *ngIf="Email?.hasError('email')" class="text-danger">
+                        El formato del email no es válido.
+                      </p>                      
+                  </div>
+              </div>              
+
+          </div>
+        
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-primary">Guardar</button>
+          </div>
+      </form>
+    </div>
+</div>
+</div>        

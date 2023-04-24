@@ -16,6 +16,14 @@ export class PersonaService {
     //console.log("El servicio persona está corriendo!")
     //return this.http.get('./assets/data/data.json');
     return this.http.get<any>(this.url);
-
   }
+
+  public detail(id: number):Observable<any>{
+    return this.http.get<any>(this.url+`/${id}`);
+  }
+
+  public update(persona: any):Observable<any>{
+    return this.http.put<any>(this.url,persona);
+  }
+
 }

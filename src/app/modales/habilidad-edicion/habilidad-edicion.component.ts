@@ -35,7 +35,6 @@ export class HabilidadEdicionComponent implements OnInit {
     });    
   }
 
-
    //Para las validaciones
    get Nombre()
    {
@@ -47,15 +46,13 @@ export class HabilidadEdicionComponent implements OnInit {
      return this.form.get('porcentaje');
    } 
 
-
-
    onUpdate(event:Event): void{
     event.preventDefault;
     this.habilidadService.update(this.form.value).subscribe(data=>{
       //alert("Habilidad modificada!!!!");
       this.ruta.navigate(['']);
     }, err => {
-      alert("Falló la modifiación de la habilidad!");
+      alert("Falló la modificación de la habilidad!");
     })
   }
 

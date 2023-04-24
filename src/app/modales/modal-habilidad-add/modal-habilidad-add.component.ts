@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators  } from '@angular/forms';
 import { Habilidad } from 'src/app/modelos/habilidad';
 import { HabilidadService } from 'src/app/servicios/habilidad.service';
-import { PersonaService } from 'src/app/servicios/persona.service';
+
 
 @Component({
   selector: 'app-modal-habilidad-add',
@@ -13,7 +13,6 @@ export class ModalHabilidadAddComponent implements OnInit {
   form: FormGroup;
   nombre = '';
   porcentaje = 0;
-  //persona:any;//Para relacionar con la habilidad
   constructor(private formBuilder:FormBuilder, private habilidadService:HabilidadService) {
     //Se crea el grupo de controles para el formulario
     this.form = formBuilder.group(
@@ -26,10 +25,6 @@ export class ModalHabilidadAddComponent implements OnInit {
   
 
   ngOnInit(): void {
-    //Se obtiene la persona para luego usarla en onCreate() 
-    /*this.personaService.obtenerDatosPersonales().subscribe(data =>{
-      this.persona = data;
-    });*/
   }
 
 
@@ -59,8 +54,6 @@ export class ModalHabilidadAddComponent implements OnInit {
 
   onCreate(event:Event): void{
     const habi = new Habilidad(this.nombre,this.porcentaje);
-    //Se debe obtener la persona a la que se va a relacionar la habilidad
-    //habi.persona = this.persona;
     this.habilidadService.save(habi).subscribe(data=>{
       //alert("Habilidad añadida!");
       window.location.reload();
@@ -69,7 +62,6 @@ export class ModalHabilidadAddComponent implements OnInit {
       this.form.reset();
     })
   }
-
 
   limpiar(): void{
     this.form.reset();

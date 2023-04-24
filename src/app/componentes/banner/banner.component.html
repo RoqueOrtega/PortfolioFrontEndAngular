@@ -3,5 +3,20 @@
     <h1 class="text-white text-center intro">
         {{persona.nombre}}</h1>
     <h2 class="text-white text-center intro">
-        {{persona.descripcion}}</h2>
+        {{persona.descripcion}}</h2> 
+
+    <h3 class="text-white text-center">
+            Telefono: {{persona.telefono}}</h3>
+    <h3 class="text-white text-center">
+            Email: {{persona.email}}</h3>        
+
+    <!-- Botón de NUEVO (llama a un MODAL)-->
+    <div class="d-flex col-auto mt-2">
+        <!-- Botón de EDICION (NO llama a un MODAL)-->
+        <button type="button" routerLink="editBanner/{{persona.id}}"
+            class="btn btn-close-white" >
+            <i class="fa-solid fa-pencil"></i>
+        </button>         
+    </div>        
 </section>
+

@@ -11,8 +11,6 @@
                     class="fa-solid fa-plus"></i></button>
         </div>
     </div>
-
-  
     <!-- LISTADO -->
     <div class="row" *ngFor="let habilidad of habilidades">
         <div class="col-3">
@@ -39,7 +37,5 @@
                 class="fa-solid fa-trash-can" (click)="borrar(habilidad.id)"></i></button>     
         </div>
     </div>    
-
 </section>
-
 <app-modal-habilidad-add></app-modal-habilidad-add>
