@@ -5,11 +5,11 @@ import { Persona } from 'src/app/modelos/persona';
 import { PersonaService } from 'src/app/servicios/persona.service';
 
 @Component({
-  selector: 'app-banner-edicion',
-  templateUrl: './banner-edicion.component.html',
-  styleUrls: ['./banner-edicion.component.css']
+  selector: 'app-acerca-de-edicion',
+  templateUrl: './acerca-de-edicion.component.html',
+  styleUrls: ['./acerca-de-edicion.component.css']
 })
-export class BannerEdicionComponent implements OnInit {
+export class AcercaDeEdicionComponent implements OnInit {
   form: FormGroup;
   persona:Persona=new Persona('','','','','','');//No deja asignar null
   constructor(private formBuilder:FormBuilder,
@@ -40,25 +40,16 @@ export class BannerEdicionComponent implements OnInit {
   }
 
   //Para las validaciones
-  get Nombre()
+  get AcercaDe()
   {
-    return this.form.get('nombre');
+    return this.form.get('acercade');
   }
 
-  get Descripcion()
+  get Imagen()
   {
-    return this.form.get('descripcion');
+    return this.form.get('imagen');
   }
 
-  get Telefono()
-  {
-    return this.form.get('telefono');
-  }
-
-  get Email()
-  {
-    return this.form.get('email');
-  }
 
 
   onUpdate(event:Event): void{

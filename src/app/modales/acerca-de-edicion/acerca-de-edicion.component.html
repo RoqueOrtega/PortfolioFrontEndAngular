@@ -1,0 +1,57 @@
+<!-- Componente: Editar Acerca de -->
+<div>
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Editar Acerca de mi</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" 
+          aria-label="Close" routerLink="/"></button>
+        </div>
+
+        <!-- Formulario BANNER -->
+        <form [formGroup]="form" (ngSubmit)="onUpdate($event)"
+            name="habilidadForm" class="bg-white rounded p-5 seccion">
+            <div class="modal-body">
+              <!-- Campos ocultos -->
+              <input type="hidden" id="personaId" class="form-control" formControlName="id" [ngModel]="persona.id">
+              <input type="hidden" id="personaNombre" class="form-control" formControlName="nombre" [ngModel]="persona.nombre"> 
+              <input type="hidden" id="personaDescripcion" class="form-control" formControlName="descripcion" [ngModel]="persona.descripcion"> 
+              <input type="hidden" id="personaTelefono" class="form-control" formControlName="telefono" [ngModel]="persona.telefono"> 
+              <input type="hidden" id="personaEmail" class="form-control" formControlName="email" [ngModel]="persona.email"> 
+
+              <!-- Campo: Acerca de mi -->
+              <div class="mb-3">
+                <label for="personaAcercaDe" class="form-label">Acerca de mi</label>
+                <textarea type="text" class="form-control" id="personaNombre"
+                      placeholder="Ingrese acerca de mi" formControlName="acercade" [ngModel]="persona.acercade" 
+                      [ngClass]="{'is-invalid': AcercaDe?.errors && AcercaDe?.touched,'is-valid': !AcercaDe?.errors && AcercaDe?.touched}">
+                      <div *ngIf="AcercaDe?.errors && AcercaDe?.touched">
+                        <p *ngIf="AcercaDe?.hasError('required')" class="text-danger">
+                          El campo acerca de mi es requerido.
+                        </p>
+                        </div>
+                </textarea>        
+              </div>
+
+              <!-- Campo: Imagen -->
+              <div class="mb-3">
+                <label for="personaImagen" class="form-label">Imagen</label>
+                <input type="text" class="form-control" id="personaDescripcion"
+                    placeholder="Ingrese el link de la imagen" formControlName="imagen" [ngModel]="persona.imagen" 
+                    [ngClass]="{'is-invalid': Imagen?.errors && Imagen?.touched,'is-valid': !Imagen?.errors && Imagen?.touched}">
+                    <div *ngIf="Imagen?.errors && Imagen?.touched">
+                      <p *ngIf="Imagen?.hasError('required')" class="text-danger">
+                        El campo imagen es requerido.
+                      </p>
+                  </div>
+              </div>             
+
+          </div>
+        
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-primary">Guardar</button>
+          </div>
+      </form>
+    </div>
+</div>
+</div>  

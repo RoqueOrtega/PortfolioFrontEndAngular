@@ -1,4 +1,4 @@
-<!-- Componente: Habilidad -->
+<!-- Componente: Editar Banner -->
 <div>
     <div class="modal-dialog">
       <div class="modal-content">
@@ -12,10 +12,11 @@
         <form [formGroup]="form" (ngSubmit)="onUpdate($event)"
             name="habilidadForm" class="bg-white rounded p-5 seccion">
             <div class="modal-body">
-              <!-- Campo: Id(oculto) -->
+              <!-- Campos ocultos -->
               <input type="hidden" id="personaId" class="form-control" formControlName="id" [ngModel]="persona.id">   
-              <!-- Campo: AcercaDe(oculto) -->
               <input type="hidden" id="personaAcercaDe" class="form-control" formControlName="acercade" [ngModel]="persona.acercade">    
+              <input type="hidden" id="personaImagen" class="form-control" formControlName="imagen" [ngModel]="persona.imagen"> 
+
               <!-- Campo: Nombre -->
               <div class="mb-3">
                   <label for="personaNombre" class="form-label">Nombre</label>

@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiURL: "https://backend-portfolio-tikn.onrender.com/"
+  apiURL: "http://backend-portfolio-tikn.onrender.com/"
 };
 
 /*

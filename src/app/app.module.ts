@@ -19,6 +19,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { ModalHabilidadAddComponent } from './modales/modal-habilidad-add/modal-habilidad-add.component';
 import { HabilidadEdicionComponent } from './modales/habilidad-edicion/habilidad-edicion.component';
 import { BannerEdicionComponent } from './modales/banner-edicion/banner-edicion.component';
+import { AcercaDeEdicionComponent } from './modales/acerca-de-edicion/acerca-de-edicion.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { BannerEdicionComponent } from './modales/banner-edicion/banner-edicion.
     IndexComponent,
     ModalHabilidadAddComponent,
     HabilidadEdicionComponent,
-    BannerEdicionComponent
+    BannerEdicionComponent,
+    AcercaDeEdicionComponent
   ],
   imports: [
     BrowserModule,
