@@ -40,7 +40,7 @@ export class LoginComponent implements OnInit {
     console.log("*****En login.component.ts.onEnviar()*****");
     event.preventDefault;
     this.autenticacionService.iniciarSesion(this.form.value).subscribe(data=>{
-      console.log("DATA: "+ JSON.stringify(data));
+      //console.log("DATA: "+ JSON.stringify(data));
       this.ruta.navigate(['']);
     })
   }

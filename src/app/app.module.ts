@@ -12,7 +12,7 @@ import { HabilidadesComponent } from './componentes/habilidades/habilidades.comp
 import { ProyectosComponent } from './componentes/proyectos/proyectos.component';
 import { FooterComponent } from './componentes/footer/footer.component';
 import { PersonaService } from 'src/app/servicios/persona.service';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './componentes/login/login.component';
 import { IndexComponent } from './componentes/index/index.component';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -20,6 +20,9 @@ import { ModalHabilidadAddComponent } from './modales/modal-habilidad-add/modal-
 import { HabilidadEdicionComponent } from './modales/habilidad-edicion/habilidad-edicion.component';
 import { BannerEdicionComponent } from './modales/banner-edicion/banner-edicion.component';
 import { AcercaDeEdicionComponent } from './modales/acerca-de-edicion/acerca-de-edicion.component';
+import { InterceptorService } from './servicios/interceptor.service';
+import { HabilidadService } from './servicios/habilidad.service';
+import { AutenticacionService } from './servicios/autenticacion.service';
 
 @NgModule({
   declarations: [
@@ -45,7 +48,10 @@ import { AcercaDeEdicionComponent } from './modales/acerca-de-edicion/acerca-de-
     HttpClientModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [ PersonaService, HabilidadService,
+    { provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true},
+  ],
+  
   bootstrap: [AppComponent]
 })
 export class AppModule { }
